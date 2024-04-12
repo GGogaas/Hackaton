@@ -1,0 +1,14 @@
+body{
+    background-color: black;
+}
+.header{
+    height: 200px;
+}
+.types{
+    display: flex;
+
+}
+.TTRPG{
+    margin-right: 20vw;
+    margin-left: 5vw;
+}
