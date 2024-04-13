@@ -1,14 +1,65 @@
 body{
     background-color: black;
+    margin: 0;
 }
 .header{
+    font-size: 26px;
     height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .types{
+    margin-top: 5vh;
     display: flex;
 
 }
 .TTRPG{
-    margin-right: 20vw;
-    margin-left: 5vw;
+    margin-right: 60vw;
+    margin-left: 10vw;
 }
+.WarGaming{
+    margin-right: 10vh ;
+}
+
+.logo{
+    width: 30vw;
+    border: rgba(148, 5, 5, 0.925) solid;
+    height: 20vh;
+}
+.about{
+    width: 40vw;
+    height: 20vh;
+    border: rgba(128, 4, 4, 0.911) solid;
+    border-right: none;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 20vh;
+    text-decoration: none;
+    
+}
+.info{
+    width: 30vw;
+    height: 20vh;
+    border: rgba(128, 4, 4, 0.911) solid;
+    border-left: none;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 20vh;
+}
+  a:link { 
+    text-decoration: none; 
+    color: white;
+  } 
+  a:visited { 
+    text-decoration: none; 
+    color: white;
+  } 
+  a:hover { 
+    text-decoration: none; 
+    color: white;
+  } 
+  a:active { 
+    text-decoration: none; 
+    color: white;
+  }
