@@ -4,18 +4,18 @@ body{
 }
 .header{
     font-size: 26px;
-    height: 200px;
+    height: 10vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .types{
-    margin-top: 5vh;
+    margin-top: 10vh;
     display: flex;
 
 }
 .TTRPG{
-    margin-right: 60vw;
+    margin-right: 80vw;
     margin-left: 10vw;
 }
 .WarGaming{
@@ -25,27 +25,29 @@ body{
 .logo{
     width: 30vw;
     border: rgba(148, 5, 5, 0.925) solid;
-    height: 20vh;
+    height: 10vh;
+    border-right: none;
 }
 .about{
     width: 40vw;
-    height: 20vh;
+    height: 10vh;
     border: rgba(128, 4, 4, 0.911) solid;
     border-right: none;
-    text-align: center;
+    border-left: none;
+    text-align: right;
     vertical-align: middle;
-    line-height: 20vh;
+    line-height: 13vh;
     text-decoration: none;
     
 }
 .info{
     width: 30vw;
-    height: 20vh;
+    height: 10vh;
     border: rgba(128, 4, 4, 0.911) solid;
     border-left: none;
     text-align: center;
     vertical-align: middle;
-    line-height: 20vh;
+    line-height: 13vh;
 }
   a:link { 
     text-decoration: none; 
