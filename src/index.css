@@ -1,0 +1,120 @@
+@font-face {
+    font-family: DnD;
+    src: url(./fonts/TrickOrTreats-rgj0O.ttf);
+}
+@font-face {
+    font-family: DnD-Italic;
+    src: url(./fonts/TrickOrTreatsItalic-BWxdV.ttf);
+}
+
+:root {
+    --header-height: 100px;
+}
+
+body {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header {
+    background-color: rgb(97, 97, 97);
+    display: flex;
+    justify-content: space-between;
+    height: var(--header-height);
+}
+
+.header .interactive {
+    margin-block: auto;
+    width: fit-content;
+    display: flex;
+    justify-content: space-around;
+}
+
+.header .interactive div {
+    width: 120px;
+}
+
+.header .interactive div a button {
+    background-color: rgb(70, 70, 70);
+    padding: 15px;
+    border-radius: 15px;
+    color: white;
+    border: 0;
+    transition: 0.4s;
+    cursor: pointer;
+    width: 100px;
+}
+
+.header .interactive div a button:hover {
+    background-color: rgb(87, 87, 87);
+    transform: scale(108%);
+}
+
+.header .interactive div a button:active {
+    transform: scale(90%);
+}
+
+.header .logo a img {
+    height: var(--header-height);
+    width: auto;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+}
+
+.cards a {
+    margin-inline: 10px;
+}
+
+.TTRPG-card, .WarGaming-card {
+    background-color: rgb(141, 141, 141);
+    padding: 50vh 15% 20px;
+    color: white;
+    font-weight: 700;
+    font-size: 50px;
+}
+
+.begin {
+    font-size: 60px;
+    font-family: DnD;
+    margin-block: 50px;
+    color: rgb(163, 139, 0);
+}
+
+.index {
+    background-color: rgb(184, 184, 184);
+}
+
+.TTRPG-card {
+    background-image: url("assets/TTRPG-BG.jpg");
+    background-position: 1300px;
+    transition: 0.4s;
+}
+
+.TTRPG-card:hover {
+    transform: scale(102%);
+}
+
+.TTRPG-card:active {
+    transform: scale(98%);
+}
+
+.WarGaming-card {
+    background-image: url("assets/TTRPG-BG.jpg");
+    background-position: 1300px;
+    transition: 0.4s;
+}
+
+.WarGaming-card:hover {
+    transform: scale(102%);
+}
+
+.WarGaming-card:active {
+    transform: scale(98%);
+}
