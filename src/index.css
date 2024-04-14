@@ -93,7 +93,8 @@ a {
 
 .TTRPG-card {
     background-image: url("assets/TTRPG-BG.jpg");
-    background-position: 1300px;
+    background-position: 50%;
+    background-size: cover;
     transition: 0.4s;
 }
 
@@ -107,7 +108,8 @@ a {
 
 .WarGaming-card {
     background-image: url("assets/TTRPG-BG.jpg");
-    background-position: 1300px;
+    background-position: 50%;
+    background-size: cover;
     transition: 0.4s;
 }
 
