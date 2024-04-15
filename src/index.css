@@ -62,10 +62,15 @@ a {
     width: auto;
 }
 
+.logo_zdj {
+    margin-left: 20px;
+}
+
 .cards {
     display: flex;
     justify-content: space-around;
     max-width: 1200px;
+    text-align: center;
 }
 
 .cards a {
@@ -74,10 +79,12 @@ a {
 
 .TTRPG-card, .WarGaming-card {
     background-color: rgb(141, 141, 141);
-    padding: 50vh 15% 20px;
+    padding-block: 50vh 20px;
+    width: 40vw;
     color: white;
     font-weight: 700;
     font-size: 50px;
+    border-radius: 15px;
 }
 
 .begin {
@@ -85,6 +92,8 @@ a {
     font-family: DnD;
     margin-block: 50px;
     color: rgb(163, 139, 0);
+    text-align: center;
+    text-shadow: 2px 2px 6px black;
 }
 
 .index {
@@ -119,4 +128,8 @@ a {
 
 .WarGaming-card:active {
     transform: scale(98%);
+}
+
+.burger {
+    padding: 20px;
 }

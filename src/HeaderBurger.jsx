@@ -1,6 +1,6 @@
 import image from './assets/logo1-removebg-preview-smaller.png'
 
-function Header(){
+function HeaderBurger(){
     
     return (
         <div className="header">
@@ -9,10 +9,11 @@ function Header(){
             <div className="interactive">
                 <div className="info"><a href="info.html"><button>Contact</button></a></div>
                 <div className="info"><a href="info.html"><button>Informations</button></a></div>
+                <div className="burger"><button><img></img></button></div>
             </div>
         </div>
     )
 
 }
 
-export default Header
+export default HeaderBurger
