@@ -1,8 +1,3 @@
-# React + Vite
+# AdventureWorksop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A website that is intended to help with TTRPG and Wargaming games. The website offers character creators, dice rolls, etc. Everything is intended to facilitate the game without electricity.
