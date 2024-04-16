@@ -106,6 +106,7 @@ body {
     min-height: 100vh;
     position: relative;
     background-image: url('assets/indexBG.jpg');
+    background-size: 100% auto;
     background-color: transparent;
     overflow-x: hidden;
 }
