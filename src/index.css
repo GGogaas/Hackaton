@@ -20,10 +20,16 @@ a {
 }
 
 .header {
+    width: 100vw;
     background-color: rgb(97, 97, 97);
     display: flex;
     justify-content: space-between;
     height: var(--header-height);
+    z-index: 1;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 .header .interactive {
@@ -33,11 +39,11 @@ a {
     justify-content: space-around;
 }
 
-.header .interactive div {
+.header .interactive .info {
     width: 120px;
 }
 
-.header .interactive div a button {
+.header .interactive .info a button {
     background-color: rgb(70, 70, 70);
     padding: 15px;
     border-radius: 15px;
@@ -48,12 +54,12 @@ a {
     width: 100px;
 }
 
-.header .interactive div a button:hover {
+.header .interactive .info a button:hover {
     background-color: rgb(87, 87, 87);
     transform: scale(108%);
 }
 
-.header .interactive div a button:active {
+.header .interactive .info a button:active {
     transform: scale(90%);
 }
 
@@ -96,40 +102,71 @@ a {
     text-shadow: 2px 2px 6px black;
 }
 
-.index {
-    background-color: rgb(184, 184, 184);
+body {
+    min-height: 100vh;
+    position: relative;
+    background-image: url('assets/indexBG.jpg');
+    background-color: transparent;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(120, 120, 120, 0.8);
+    z-index: -1;
+}
+
+.TTRPG-card, .WarGaming-card {
+    background-position: 50%;
+    background-size: cover;
+    transition: 0.4s;
+    box-shadow: 0px 2px 5px black;
 }
 
 .TTRPG-card {
     background-image: url("assets/TTRPG-BG.jpg");
-    background-position: 50%;
-    background-size: cover;
-    transition: 0.4s;
 }
 
 .TTRPG-card:hover {
     transform: scale(102%);
+    box-shadow: 0px 8px 10px black;
 }
 
 .TTRPG-card:active {
     transform: scale(98%);
+    box-shadow: 0px 0px 4px black;
 }
 
 .WarGaming-card {
-    background-image: url("assets/TTRPG-BG.jpg");
-    background-position: 50%;
-    background-size: cover;
-    transition: 0.4s;
+    background-image: url("assets/WarGaming-BG.webp");
 }
 
 .WarGaming-card:hover {
     transform: scale(102%);
+    box-shadow: 0px 8px 10px black;
 }
 
 .WarGaming-card:active {
     transform: scale(98%);
+    box-shadow: 0px 0px 4px black;
 }
 
 .burger {
-    padding: 20px;
+    text-align: center;
+}
+
+.interactive .burger {
+    width: 50px;
+    margin-right: 20px;
+    margin-block: auto;
+}
+
+.interactive .burger button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
