@@ -8,7 +8,7 @@ function Header(){
     
             <div className="interactive">
                 <div className="info"><a href="info.html"><button>Contact</button></a></div>
-                <div className="info"><a href="info.html"><button>Informations</button></a></div>
+                <div className="info"><a href="info.html"><button>Info</button></a></div>
             </div>
         </>
     )
