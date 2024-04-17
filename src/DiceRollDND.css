@@ -40,6 +40,13 @@
 
 .module .middle {
     width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.module .middle .img img {
+    width: 90%;
+    max-height: 30vh;
 }
 
 .module .number {
