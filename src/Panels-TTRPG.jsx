@@ -4,7 +4,7 @@ function Panels(){
     const list = games.map(game => <li><a href={game+".html"}><img src={"src/assets/"+game+"LOGO.jpg"}/><img src={"src/assets/"+game+"IMG.jpg"}/></a></li>);
     
     return (
-        <ul>{list}</ul>
+        <ul className="panels">{list}</ul>
     )
 
 }
