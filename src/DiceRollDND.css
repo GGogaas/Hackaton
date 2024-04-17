@@ -1,0 +1,48 @@
+.module {
+    text-align: center;
+    margin-top: 50px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    max-width: 60vw;
+    margin-left: calc(40vw / 2);
+}
+
+.module .diceList{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.module .diceList label {
+    font-size: 20px;
+    padding: 15px;
+    background-color: rgb(70, 70, 70);
+    margin: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 60px;
+    transition: 0.4s;
+}
+
+.module .diceList label input { 
+    cursor: pointer;
+    display: none;
+}
+
+.module .diceList label:has(> input:checked) { 
+    background-color: rgb(110, 110, 110);
+}
+
+.module .diceList label:hover {
+    background-color: rgb(87, 87, 87);
+    transform: scale(108%);
+}
+
+.module .middle {
+    width: 100%;
+}
+
+.module .number {
+    width: 100%;
+    padding-block: 20px;
+}

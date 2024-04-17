@@ -5,14 +5,45 @@
     <link rel="icon" type="image/svg+xml" href="src/assets/logo-removebg-preview.png" />
     <link rel="stylesheet" href="src/index.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/DiceRollDND.css" />
     <title>Document</title>
 </head>
 <body>
     
     <div id="header-burger" class="header"></div>
 
-    
+    <p class="begin">Dice Roll</p>
 
+    <div class="module">
+        <div class="diceList">
+            <label><input type="radio" name="dice" id="D4">D4</label>
+            <label><input type="radio" name="dice" id="D6">D6</label>
+            <label><input type="radio" name="dice" id="D8">D8</label>
+            <label><input type="radio" name="dice" id="D10">D10</label>
+            <label><input type="radio" name="dice" id="D12">D12</label>
+            <label><input type="radio" name="dice" id="D20">D20</label>
+            <label><input type="radio" name="dice" id="D100">D100</label>
+        </div>
+        <div class="middle">
+            <div class="difficultyCheck">
+
+            </div>
+            <div class="img">
+
+            </div>
+            <div class="bonus">
+
+            </div>
+        </div>
+        <div class="number">
+            0
+        </div>
+        <div class="result">
+
+        </div>
+    </div>
+
+    <script src="/src/DiceRollDND.js"></script>
     <script type="module" src="/src/Setup-HeaderBurgerDND.jsx"></script>
 
 </body>
