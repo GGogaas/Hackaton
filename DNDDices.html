@@ -12,7 +12,7 @@
     
     <div id="header-burger" class="header"></div>
 
-    <p class="begin">Dice Roll</p>
+    <p class="lower">Dice Roll</p>
 
     <div class="module">
         <div class="diceList">
@@ -36,13 +36,17 @@
             </div>
         </div>
         <div class="number">
-            <input class="rollsNumber" type="number"/>
+            Number of dices<br><input class="rollsNumber" type="number"/>
         </div>
         <div class="result">
-
+            <h4>Result:</h4>
+            <a class="resultOutput"></a>
+            <h4 class="sum none">Sum:</h4>
+            <a class="sumOutput none"></a>
         </div>
-        <div>
+        <div class="apply">
             <button onclick="start()">Apply</button>
+            <div class="warnings none"></div>
         </div>
     </div>
 
