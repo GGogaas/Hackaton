@@ -5,14 +5,35 @@
     <link rel="icon" type="image/svg+xml" href="src/assets/logo-removebg-preview.png" />
     <link rel="stylesheet" href="src/index.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/DiceRollDND.css" />
-    <title>Document</title>
+    <link rel="stylesheet" href="src/CombatDND.css" />
+    <title>In combat</title>
 </head>
 <body>
     
     <div id="header-burger" class="header"></div>
 
     <p class="lower">Combat</p>
+
+    <div class="module">
+    
+        <div class="topButtons">
+            <button class="add">Add new character</button>
+            <button class="start">Start run</button>
+            <button class="save none">Save current</button>
+            <button class="end none">End run</button>
+        </div>
+        <div class="lists">
+            <div class="left">
+
+            </div>
+            <div class="right">
+                <div class="runMeter">
+                    <h4>Turn:</h4><a class="meter">0</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
     
     <script type="module" src="/src/Setup-HeaderBurgerDND.jsx"></script>
 

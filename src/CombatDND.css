@@ -1,0 +1,119 @@
+.module {
+    text-align: center;
+    margin-top: 50px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    max-width: 1000px;
+    margin-inline: auto;
+}
+
+.module .topButtons {
+    width: 100%;
+}
+
+.module .topButtons button {
+    padding-block: 20px;
+    width: 45%;
+    border: 0;
+    margin: 5px;
+    border-radius: 20px;
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.module .topButtons .add {
+    background-color: green;
+}
+
+.module .topButtons .add:hover {
+    background-color: rgb(0, 161, 0);
+    transform: scale(104%);
+}
+
+.module .topButtons .add:active {
+    background-color: rgb(0, 161, 0);
+    transform: scale(96%);
+}
+
+.module .topButtons .start {
+    background-color: rgb(167, 167, 0);
+}
+
+.module .topButtons .start:hover {
+    background-color: rgb(189, 189, 0);
+    transform: scale(104%);
+}
+
+.module .topButtons .start:active {
+    background-color: rgb(189, 189, 0);
+    transform: scale(96%);
+}
+
+.module .topButtons .save {
+    background-color: rgb(98, 145, 233);
+}
+
+.module .topButtons .save:hover {
+    background-color: rgb(55, 124, 252);
+    transform: scale(104%);
+}
+
+.module .topButtons .save:active {
+    background-color: rgb(55, 124, 252);
+    transform: scale(96%);
+}
+
+.module .topButtons .end {
+    background-color: rgb(167, 0, 0);
+}
+
+.module .topButtons .end:hover {
+    background-color: rgb(197, 0, 0);
+    transform: scale(104%);
+}
+
+.module .topButtons .end:active {
+    background-color: rgb(197, 0, 0);
+    transform: scale(96%);
+}
+
+.none {
+    display: none;
+}
+
+.module .lists {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.module .lists div {
+    min-height: 60vh;
+    width: 50%;
+    background-color: rgb(173, 173, 173);
+}
+
+.module .lists .left {
+    border-right: 3px solid rgb(144, 144, 144);
+}
+
+.module .lists .right .runMeter {
+    width: 100%;
+}
+
+.module h4 {
+    margin-block: 10px 2px;
+}
+
+.lower {
+    font-size: 60px;
+    font-family: DnD;
+    margin-block: 20px;
+    color: rgb(189, 160, 0);
+    text-align: center;
+    text-shadow: 2px 2px 6px black;
+}
+
