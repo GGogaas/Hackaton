@@ -8,7 +8,8 @@ const list = [
   {name: "DNDCombat.html", target: "_self", display: "Combat"},
   {name: "DNDStatBlocks.html", target: "_self", display: "StatBlocks"},
   {name: "DNDBooks.html", target: "_self", display: "Books"},
-  {name: "https://dnd.wizards.com/", target: "_blank", display: "DND official website"}
+  {name: "https://dnd.wizards.com/", target: "_blank", display: "D&D official website"},
+  {name: "https://www.dndbeyond.com/posts/1480-what-is-dungeons-dragons", target: "_blank", display: "What is D&D"}
 ]
 ReactDOM.createRoot(document.getElementById('header-burger')).render(
   <React.StrictMode>
