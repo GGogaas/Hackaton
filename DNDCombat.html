@@ -9,32 +9,54 @@
     <title>In combat</title>
 </head>
 <body>
+
+    <div class="popupBG none">
+        <div class="popup">
+            <div><h3>Add new character</h3></div>
+            <div>
+                <a>Name:</a><input class="name"><br>
+            </div>
+            <div>
+                <a>Initiative:</a><input class="initiative"><br>
+            </div>
+            <div>
+                <a>Current HP:</a><input class="hp"><br>
+            </div>
+            <div>
+                <a>Max HP:</a><input class="hpMax"><br>
+            </div>
+            <div>
+                <a>Notes:</a><br><textarea class="note" rows="5" cols="50"></textarea>
+            </div>
+            <button class="apply" onclick="apply()">Apply</button>
+            <button class="cancel" onclick="cancel()">Cancel</button>
+        </div>
+    </div>
+
     
     <div id="header-burger" class="header"></div>
-
     <p class="lower">Combat</p>
 
     <div class="module">
     
         <div class="topButtons">
-            <button class="add">Add new character</button>
-            <button class="start">Start run</button>
-            <button class="save none">Save current</button>
-            <button class="end none">End run</button>
+            <button class="add" onclick="displayAdd()">Add new character</button>
+            <button class="start" onclick="start()">Start run</button>
+            <button class="save none" onclick="save()">Save current</button>
+            <button class="end none" onclick="end()">End run</button>
         </div>
         <div class="lists">
             <div class="left">
-
-            </div>
-            <div class="right">
                 <div class="runMeter">
                     <h4>Turn:</h4><a class="meter">0</a>
                 </div>
             </div>
+            <div class="right">
+            </div>
         </div>
-
     </div>
     
+    <script src="/src/CombatDND.js"></script>
     <script type="module" src="/src/Setup-HeaderBurgerDND.jsx"></script>
 
 </body>

@@ -98,14 +98,134 @@
 
 .module .lists .left {
     border-right: 3px solid rgb(144, 144, 144);
+    padding-top: 20px;
 }
 
-.module .lists .right .runMeter {
+.module .lists .right {
+    padding-top: 20px;
+}
+
+.module .lists .left .runMeter {
     width: 100%;
+    border-bottom: 3px solid rgb(144, 144, 144);
+    min-height: 0;
+    height: 60px;
 }
 
 .module h4 {
-    margin-block: 10px 2px;
+    margin-block: 0px 2px;
+}
+
+.module .lists .left .block {
+    width: 100%;
+}
+
+.module .lists .left .block div {
+    margin: 0;
+    width: 100%;
+    min-height: 0px;
+}
+
+.module .lists .left .block div a {
+    margin: 0;
+    display: inline-block;
+    width: 20%;
+}
+
+.module .lists .left .block div input {
+    margin: 0;
+    width: 50%;
+}
+
+.module .lists .left .block input {
+    width: 60%;
+}
+
+body .popupBG {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    z-index: 2;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+body .popupBG .popup {
+    display: inline-block;
+    width: 500px;
+    background-color: gray;
+    padding-block: 20px 40px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 30vh;
+    border-radius: 30px;
+}
+
+body .popupBG .popup a {
+    margin: 0;
+    display: inline-block;
+    width: 20%;
+}
+
+body .popupBG .popup div input {
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 8px;
+}
+
+body .popupBG .popup div textarea {
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 8px;
+    resize: none;
+}
+
+body .popupBG .popup .apply {
+    padding-block: 20px;
+    width: 70%;
+    border: 0;
+    margin: 5px;
+    border-radius: 20px;
+    color: white;
+    background-color: green;
+    font-weight: 700;
+    font-size: 18px;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+body .popupBG .popup .apply:hover {
+    background-color: rgb(0, 161, 0);
+    transform: scale(104%);
+}
+
+body .popupBG .popup .apply:active {
+    background-color: rgb(0, 161, 0);
+    transform: scale(96%);
+}
+
+body .popupBG .popup .cancel {
+    padding-block: 20px;
+    width: 70%;
+    border: 0;
+    margin: 5px;
+    border-radius: 20px;
+    color: white;
+    background-color: rgb(90, 90, 90);
+    font-weight: 700;
+    font-size: 18px;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+body .popupBG .popup .cancel:hover {
+    background-color: rgb(107, 107, 107);
+    transform: scale(104%);
+}
+
+body .popupBG .popup .cancel:active {
+    background-color: rgb(107, 107, 107);
+    transform: scale(96%);
 }
 
 .lower {
@@ -116,4 +236,3 @@
     text-align: center;
     text-shadow: 2px 2px 6px black;
 }
-
