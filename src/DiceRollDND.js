@@ -16,9 +16,21 @@ const displayResult = document.body.querySelector(".resultOutput");
 const sums = document.body.querySelector(".sum");
 const sumOutput = document.body.querySelector(".sumOutput");
 const warning = document.body.querySelector(".warnings");
+const imgSrc = document.body.querySelector(".imgSrc");
 
 let check = true;
 
+function maxRoll() {
+    for(let i = 0; i < dicesList.length; i++){
+        if(dicesList[i].checked){
+            return dicesList[i].value;
+        }
+    }
+}
+
+function changeIMG(){
+    imgSrc.src = `src/assets/D${maxRoll()}.png`;
+}
 
 function start(){
 
@@ -29,14 +41,6 @@ function start(){
         if(!sums.classList.contains("none")){
             sums.classList.add("none");
             sumOutput.classList.add("none");
-        }
-
-        function maxRoll() {
-            for(let i = 0; i < dicesList.length; i++){
-                if(dicesList[i].checked){
-                    return dicesList[i].value;
-                }
-            }
         }
 
         let result = [];
