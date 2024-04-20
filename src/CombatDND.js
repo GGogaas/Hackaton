@@ -2,10 +2,6 @@ var CList = [];
 var CListSorted = [];
 var runMeterNumber = document.body.querySelector(".meter");
 
-if(localStorage.getItem("CList") != null){
-    CList = localStorage.getItem("CList");
-}
-
 var number = CList.length;
 
 const popupBG = document.body.querySelector(".popupBG");
@@ -26,14 +22,40 @@ const hpD = document.body.querySelector(".hp");
 const hpMaxD = document.body.querySelector(".hpMax");
 const noteD = document.body.querySelector(".note");
 
+if(localStorage.getItem("CList") != null){
+    CList = JSON.parse(localStorage.getItem("CList"));
+    CListSorted = JSON.parse(localStorage.getItem("CListSorted"));
+    number = JSON.parse(localStorage.getItem("number"))
+    runMeterNumber.innerHTML = JSON.parse(localStorage.getItem("runMeterNumber"));
+    displayCharacters();
+    displayList();
+    addButton.classList.add("none");
+    startButton.classList.add("none");
+    saveButton.classList.remove("none");
+    endButton.classList.remove("none");
+    endTurnButton.classList.remove("none");
+    runMeter.classList.remove("none");
+}
+
+function save(){
+    localStorage.setItem("CList", JSON.stringify(CList));
+    localStorage.setItem("CListSorted", JSON.stringify(CListSorted));
+    localStorage.setItem("number", JSON.stringify(number));
+    localStorage.setItem("runMeterNumber", JSON.stringify(runMeterNumber.innerHTML));
+}
+
 function displayAdd(){
     popupBG.classList.remove("none");
 }
 
 function apply(){
-    if((nameD.value == "" || initiativeD.value == "" || hpD.value == "" || hpMaxD.value == "")) {
+    if(nameD.value == "" || initiativeD.value == "" || hpD.value == "" || hpMaxD.value == "") {
         warningBox.classList.remove("none");
         warningBox.innerHTML = "Fill up all informations!";
+    }
+    else if(parseInt(initiativeD.value) <= 0 || parseInt(hpD.value) <= 0 || parseInt(hpMaxD.value) <= 0){  
+        warningBox.classList.remove("none");
+        warningBox.innerHTML = "All numbers must be greater than 0!";
     }
     else if(parseInt(hpD.value) > parseInt(hpMaxD.value)){
         warningBox.classList.remove("none");
@@ -42,7 +64,6 @@ function apply(){
     else{
         CList.push({id: CList.length + 1 ,name: nameD.value, initiative: parseInt(initiativeD.value), hp: parseInt(hpD.value), hpMax: parseInt(hpMaxD.value), note: noteD.value});
         number = CList.length;
-        console.log(CList);
         cancel();
         displaySorted();
         warningBox.classList.add("none");
@@ -52,7 +73,6 @@ function apply(){
 function displaySorted(){
     CListSorted = CList.slice();
     CListSorted.sort((a, b) => parseInt(b.initiative) - parseInt(a.initiative));
-    console.log(CListSorted);
     displayCharacters();
 }
 
@@ -81,17 +101,17 @@ function start(){
 }
 
 function displayList(){
+    playersList.innerHTML = "";
     for(let i = 0; i < CListSorted.length; i++){
-        console.log(CList)
         playersList.innerHTML += 
             `
                 <div class="character">
                     <section class="char">
                         <div>Name: ${CList[i].name}</div><br>
                         <div>Initiative: ${CList[i].initiative}</div><br>
-                        <div><a>Current HP: </a><input value="${CList[i].hp}" class="hp${i}"></div>
-                        <div><a>Max HP: </a><input value="${CList[i].hpMax}" class="hpMax${i}"></div>
-                        <div><a>Notes: </a><br><textarea class="note note${i}">${CList[i].note}</textarea></div>
+                        <div><a>Current HP: </a><input value="${CList[i].hp}" class="hp${CList[i].id}"></div>
+                        <div><a>Max HP: </a><input value="${CList[i].hpMax}" class="hpMax${CList[i].id}"></div>
+                        <div><a>Notes: </a><br><textarea class="note note${CList[i].id}">${CList[i].note}</textarea></div>
                     </section>
                     <section class="apply">
 
@@ -139,4 +159,5 @@ function end(){
     CList = [];
     CListSorted = [];
     displayCharacters();
+    displayList();
 }
