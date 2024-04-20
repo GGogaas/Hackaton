@@ -24,6 +24,36 @@
     cursor: pointer;
 }
 
+.module .lists .right .endTurn .endTurnButton {
+    padding-block: 20px;
+    width: 90%;
+    border: 0;
+    margin: 4.5px;
+    border-radius: 20px;
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+    transition: 0.4s;
+    cursor: pointer;
+    background-color: rgb(199, 129, 0);
+}
+
+.module .lists .right .endTurn .endTurnButton:hover {
+    background-color: rgb(212, 147, 25);
+    transform: scale(104%);
+}
+
+.module .lists .right .endTurn .endTurnButton:active {
+    background-color: rgb(212, 147, 25);
+    transform: scale(96%);
+}
+
+.module .lists .right .endTurn {
+    min-height: 0;
+    width: 100%;
+    border-bottom: 3px solid rgb(144, 144, 144);
+}
+
 .module .topButtons .add {
     background-color: green;
 }
@@ -98,7 +128,7 @@
 }
 
 .module .lists .right {
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 .module .lists .left .runMeter {

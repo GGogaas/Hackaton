@@ -33,7 +33,6 @@
             <div class="warnings none"></div>
         </div>
     </div>
-
     
     <div id="header-burger" class="header"></div>
     <p class="lower">Combat</p>
@@ -44,11 +43,11 @@
             <button class="add" onclick="displayAdd()">Add new character</button>
             <button class="start" onclick="start()">Start run</button>
             <button class="save none" onclick="save()">Save current</button>
-            <button class="end none" onclick="end()">End run</button>
+            <button class="end none" ondblclick="end()">End run (double click)</button>
         </div>
         <div class="lists">
             <div class="left">
-                <div class="runMeter">
+                <div class="runMeter none">
                     <h4>Turn:</h4><a class="meter">0</a>
                 </div>
                 <div class="queueDisplay">
@@ -56,6 +55,9 @@
                 </div>
             </div>
             <div class="right">
+                <div class="endTurn none">
+                    <button class="endTurnButton" onclick="endTurn()">End turn</button>
+                </div>
             </div>
         </div>
     </div>
