@@ -304,3 +304,46 @@ body .popupBG .popup .warnings {
     width: 100%;
     min-height: 50px;
 }
+
+.lists .right .playersList .character div {
+    display: inline-block;
+    width: 80%;
+    min-height: 0;
+    background-color: transparent;
+    margin-bottom: 8px;
+}
+
+.lists .right .playersList .character .char div a {
+    margin: 0;
+    display: inline-block;
+    width: 30%;
+}
+
+.lists .right .playersList .character .char div input {
+    border-radius: 10px;
+    padding: 5px;
+    width: 60%;
+}
+
+.lists .right .playersList .character {
+    display: inline-block;
+    width: 80%;
+    min-height: 0;
+    margin-block: 5px;
+    padding-block: 10px;
+    background-color: rgb(151, 151, 151);
+    border-radius: 20px;
+}
+
+.lists .right .playersList {
+    display: block;
+    width: 100%;
+    min-height: 50px;
+}
+
+.lists .right .playersList .character .char div .note {
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 8px;
+    resize: none;
+}

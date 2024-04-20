@@ -18,6 +18,7 @@ const endTurnButton = document.body.querySelector(".endTurn");
 const runMeter = document.body.querySelector(".runMeter");
 const warningBox = document.body.querySelector(".warnings");
 const queueDisplay = document.body.querySelector(".queueDisplay");
+const playersList = document.body.querySelector(".playersList");
 
 const nameD = document.body.querySelector(".name");
 const initiativeD = document.body.querySelector(".initiative");
@@ -30,37 +31,28 @@ function displayAdd(){
 }
 
 function apply(){
-    let canAdd = true;
-    if(CList.length > 0){
-        for(let i = 0; i < CList.length; i++){
-            if(CList[i].name == nameD.value){      
-                warningBox.classList.remove("none");
-                warningBox.innerHTML = "This name was already used!";
-                canAdd = false;
-            }
-        }
+    if((nameD.value == "" || initiativeD.value == "" || hpD.value == "" || hpMaxD.value == "")) {
+        warningBox.classList.remove("none");
+        warningBox.innerHTML = "Fill up all informations!";
     }
-    if(canAdd){
-        if((nameD.value == "" || initiativeD.value == "" || hpD.value == "" || hpMaxD.value == "")) {
-            warningBox.classList.remove("none");
-            warningBox.innerHTML = "Fill up all informations!";
-        }
-        else if(parseInt(hpD.value) > parseInt(hpMaxD.value)){
-            warningBox.classList.remove("none");
-            warningBox.innerHTML = "Current HP must be lower than max HP!";
-        }
-        else{
-            CList.push({name: nameD.value, initiative: parseInt(initiativeD.value), hp: parseInt(hpD.value), hpMax: parseInt(hpMaxD.value), note: noteD.value});
-            number = CList.length;
-            cancel();
-            displaySorted();
-            warningBox.classList.add("none");
-        }
+    else if(parseInt(hpD.value) > parseInt(hpMaxD.value)){
+        warningBox.classList.remove("none");
+        warningBox.innerHTML = "Current HP must be lower than or equal to max HP!";
+    }
+    else{
+        CList.push({id: CList.length + 1 ,name: nameD.value, initiative: parseInt(initiativeD.value), hp: parseInt(hpD.value), hpMax: parseInt(hpMaxD.value), note: noteD.value});
+        number = CList.length;
+        console.log(CList);
+        cancel();
+        displaySorted();
+        warningBox.classList.add("none");
     }
 }
 
 function displaySorted(){
-    CListSorted = CList.sort((a, b) => parseInt(b.initiative) - parseInt(a.initiative));
+    CListSorted = CList.slice();
+    CListSorted.sort((a, b) => parseInt(b.initiative) - parseInt(a.initiative));
+    console.log(CListSorted);
     displayCharacters();
 }
 
@@ -85,6 +77,28 @@ function start(){
     endButton.classList.remove("none");
     endTurnButton.classList.remove("none");
     runMeter.classList.remove("none");
+    displayList();
+}
+
+function displayList(){
+    for(let i = 0; i < CListSorted.length; i++){
+        console.log(CList)
+        playersList.innerHTML += 
+            `
+                <div class="character">
+                    <section class="char">
+                        <div>Name: ${CList[i].name}</div><br>
+                        <div>Initiative: ${CList[i].initiative}</div><br>
+                        <div><a>Current HP: </a><input value="${CList[i].hp}" class="hp${i}"></div>
+                        <div><a>Max HP: </a><input value="${CList[i].hpMax}" class="hpMax${i}"></div>
+                        <div><a>Notes: </a><br><textarea class="note note${i}">${CList[i].note}</textarea></div>
+                    </section>
+                    <section class="apply">
+
+                    </section>
+                </div>
+            `;
+    }
 }
 
 function endTurn(){
