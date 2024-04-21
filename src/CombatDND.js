@@ -25,7 +25,7 @@ const noteD = document.body.querySelector(".note");
 if(localStorage.getItem("CList") != null){
     CList = JSON.parse(localStorage.getItem("CList"));
     CListSorted = JSON.parse(localStorage.getItem("CListSorted"));
-    number = JSON.parse(localStorage.getItem("number"))
+    number = JSON.parse(localStorage.getItem("number"));
     runMeterNumber.innerHTML = JSON.parse(localStorage.getItem("runMeterNumber"));
     displayCharacters();
     displayList();
@@ -63,7 +63,7 @@ function apply(){
         warningBox.innerHTML = "Current HP must be lower than or equal to max HP!";
     }
     else{
-        CList.push({id: CList.length + 1 ,name: nameD.value, initiative: parseInt(initiativeD.value), hp: parseInt(hpD.value), hpMax: parseInt(hpMaxD.value), note: noteD.value});
+        CList.push({id: CList.length + 1 ,name: nameD.value, initiative: parseInt(initiativeD.value), hp: parseInt(hpD.value), hpMax: parseInt(hpMaxD.value), note: noteD.value, plus: 0, minus: 0});
         number = CList.length;
         cancel();
         displaySorted();
@@ -117,10 +117,10 @@ function displayList(){
                         <section class="char">
                             <div>Name: ${CList[i].name}</div><br>
                             <div>Initiative: ${CList[i].initiative}</div><br>
-                            <div><a>Current HP: </a><input value="${CList[i].hp}" class="hp${CList[i].id}"></div>
-                            <div><a>Max HP: </a><input value="${CList[i].hpMax}" class="hpMax${CList[i].id}"></div>
-                            <div><a>Notes: </a><br><textarea class="note note${CList[i].id}" rows="6" cols="20" type="text">${CList[i].note}</textarea></div>
-                            <div class="revive${CList[i].id}">Death saving throws<br><button class="plus" onclick="plus(${CList[i].id});">+</button><a class="plusNum reviveNumberPlus${CList[i].id}">0</a>-<a class="minusNum reviveNumberMinus${CList[i].id}">0</a><button class="minus" onclick="minus(${CList[i].id});">-</button></div>
+                            <div><a>Current HP: </a><input type="number" value="${CList[i].hp}" class="hp${CList[i].id}"></div>
+                            <div><a>Max HP: </a><input type="number" value="${CList[i].hpMax}" class="hpMax${CList[i].id}"></div>
+                            <div><a>Notes: </a><br><textarea type="text" class="note note${CList[i].id}" rows="6" cols="20" type="text">${CList[i].note}</textarea></div>
+                            <div class="revive${CList[i].id}">Death saving throws<br><button class="plus" onclick="plus(${CList[i].id});">+</button><a class="plusNum reviveNumberPlus${CList[i].id}">${CList[i].plus}</a>-<a class="minusNum reviveNumberMinus${CList[i].id}">${CList[i].minus}</a><button class="minus" onclick="minus(${CList[i].id});">-</button></div>
                             <div><button onclick="changeData(${CList[i].id});">Apply changes</button></div>
                             <div class="warningsCharacter${CList[i].id} none"></div>
                         </section>
@@ -138,9 +138,9 @@ function displayList(){
                         <section class="char">
                             <div>Name: ${CList[i].name}</div><br>
                             <div>Initiative: ${CList[i].initiative}</div><br>
-                            <div><a>Current HP: </a><input value="${CList[i].hp}" class="hp${CList[i].id}"></div>
-                            <div><a>Max HP: </a><input value="${CList[i].hpMax}" class="hpMax${CList[i].id}"></div>
-                            <div><a>Notes: </a><br><textarea class="note note${CList[i].id}" rows="6" cols="20" type="text">${CList[i].note}</textarea></div>
+                            <div><a>Current HP: </a><input type="number" value="${CList[i].hp}" class="hp${CList[i].id}"></div>
+                            <div><a>Max HP: </a><input type="number" value="${CList[i].hpMax}" class="hpMax${CList[i].id}"></div>
+                            <div><a>Notes: </a><br><textarea type="text" class="note note${CList[i].id}" rows="6" cols="20" type="text">${CList[i].note}</textarea></div>
                             <div><button onclick="changeData(${CList[i].id});">Apply changes</button></div>
                             <div class="warningsCharacter${CList[i].id} none"></div>
                         </section>
@@ -157,12 +157,14 @@ function displayList(){
 function plus(i){
     if(parseInt(document.body.querySelector(`.reviveNumberPlus${i}`).innerHTML) < 3){
         document.body.querySelector(`.reviveNumberPlus${i}`).innerHTML = parseInt(document.body.querySelector(`.reviveNumberPlus${i}`).innerHTML) + 1;
+        CList[i-1].plus += 1;
     }
 }
 
 function minus(i){
     if(parseInt(document.body.querySelector(`.reviveNumberMinus${i}`).innerHTML) < 3){
         document.body.querySelector(`.reviveNumberMinus${i}`).innerHTML = parseInt(document.body.querySelector(`.reviveNumberMinus${i}`).innerHTML) + 1;
+        CList[i-1].minus += 1;
     }
 }
 
@@ -197,6 +199,9 @@ function cancel(){
 
 function end(){
     localStorage.removeItem("CList");
+    localStorage.removeItem("CListSorted");
+    localStorage.removeItem("number");
+    localStorage.removeItem("runMeterNumber");
     addButton.classList.remove("none");
     startButton.classList.remove("none");
     saveButton.classList.add("none");
@@ -270,6 +275,8 @@ function changeData(i){
         else {
             changeBG.classList.remove("red");
             document.body.querySelector(`.char${i}`).classList.remove("red");
+            CList[i-1].plus = 0;
+            CList[i-1].minus = 0;
         }
     }
 }

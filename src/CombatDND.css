@@ -394,11 +394,11 @@ body .popupBG .popup .warnings {
 }
 
 .plus:hover {
-    transform: scale(110%);
+    transform: scale(110%) !important;
 }
 
 .plus:active {
-    transform: scale(90%);
+    transform: scale(90%) !important;
 }
 
 .minus {
