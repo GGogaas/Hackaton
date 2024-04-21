@@ -81,10 +81,11 @@ function displayCharacters(){
     for(let i = 0; i < CListSorted.length; i++){
         queueDisplay.innerHTML += 
             `
-                <div class="character">
+                <div class="character char${CListSorted[i].id}">
                     <div>Name: ${CListSorted[i].name}</div><br>
                     <div>Initiative: ${CListSorted[i].initiative}</div><br>
-                    <div>HP: ${CListSorted[i].hp}/${CListSorted[i].hpMax}</div>
+                    <div>HP: ${CListSorted[i].hp}/${CListSorted[i].hpMax}</div><br>
+                    <div>Notes: ${CListSorted[i].note}</div>
                 </div>
             `;
     }
@@ -111,7 +112,8 @@ function displayList(){
                         <div>Initiative: ${CList[i].initiative}</div><br>
                         <div><a>Current HP: </a><input value="${CList[i].hp}" class="hp${CList[i].id}"></div>
                         <div><a>Max HP: </a><input value="${CList[i].hpMax}" class="hpMax${CList[i].id}"></div>
-                        <div><a>Notes: </a><br><textarea class="note note${CList[i].id}">${CList[i].note}</textarea></div>
+                        <div><a>Notes: </a><br><textarea class="note note${CList[i].id}" rows="5" cols="30" type="text">${CList[i].note}</textarea></div>
+                        <div><button onclick="changeData(${CList[i].id});">Apply changes</button></div>
                     </section>
                     <section class="apply">
 
@@ -160,4 +162,21 @@ function end(){
     CListSorted = [];
     displayCharacters();
     displayList();
+}
+
+function changeData(i){
+    let found = CListSorted.find(element => element.id === i);
+    
+    found.hp = parseInt(document.body.querySelector(`.hp${i}`).value);
+    found.hpMax = parseInt(document.body.querySelector(`.hpMax${i}`).value);
+    found.note = document.body.querySelector(`.note${i}`).value;
+
+    let toChange = document.body.querySelector(`.char${i}`);
+    toChange.innerHTML = 
+        `
+            <div>Name: ${found.name}</div><br>
+            <div>Initiative: ${found.initiative}</div><br>
+            <div>HP: ${found.hp}/${found.hpMax}</div><br>
+            <div>Notes: ${found.note}</div>
+        `;
 }
