@@ -42,6 +42,7 @@ function save(){
     localStorage.setItem("CListSorted", JSON.stringify(CListSorted));
     localStorage.setItem("number", JSON.stringify(number));
     localStorage.setItem("runMeterNumber", JSON.stringify(runMeterNumber.innerHTML));
+    console.log(localStorage.getItem("CList"));
 }
 
 function displayAdd(){
@@ -92,34 +93,76 @@ function displayCharacters(){
 }
 
 function start(){
-    addButton.classList.add("none");
-    startButton.classList.add("none");
-    saveButton.classList.remove("none");
-    endButton.classList.remove("none");
-    endTurnButton.classList.remove("none");
-    runMeter.classList.remove("none");
-    displayList();
+    if(CList.length >= 2){
+        addButton.classList.add("none");
+        startButton.classList.add("none");
+        saveButton.classList.remove("none");
+        endButton.classList.remove("none");
+        endTurnButton.classList.remove("none");
+        runMeter.classList.remove("none");
+        displayList();
+    }
+    else {
+        alert("Each run need at least 2 characters!")
+    }
 }
 
 function displayList(){
     playersList.innerHTML = "";
     for(let i = 0; i < CListSorted.length; i++){
-        playersList.innerHTML += 
-            `
-                <div class="character">
-                    <section class="char">
-                        <div>Name: ${CList[i].name}</div><br>
-                        <div>Initiative: ${CList[i].initiative}</div><br>
-                        <div><a>Current HP: </a><input value="${CList[i].hp}" class="hp${CList[i].id}"></div>
-                        <div><a>Max HP: </a><input value="${CList[i].hpMax}" class="hpMax${CList[i].id}"></div>
-                        <div><a>Notes: </a><br><textarea class="note note${CList[i].id}" rows="5" cols="30" type="text">${CList[i].note}</textarea></div>
-                        <div><button onclick="changeData(${CList[i].id});">Apply changes</button></div>
-                    </section>
-                    <section class="apply">
+        if(CList[i].hp == 0){
+            playersList.innerHTML += 
+                `
+                    <div class="character character${i}">
+                        <section class="char">
+                            <div>Name: ${CList[i].name}</div><br>
+                            <div>Initiative: ${CList[i].initiative}</div><br>
+                            <div><a>Current HP: </a><input value="${CList[i].hp}" class="hp${CList[i].id}"></div>
+                            <div><a>Max HP: </a><input value="${CList[i].hpMax}" class="hpMax${CList[i].id}"></div>
+                            <div><a>Notes: </a><br><textarea class="note note${CList[i].id}" rows="6" cols="20" type="text">${CList[i].note}</textarea></div>
+                            <div class="revive${CList[i].id}">Death saving throws<br><button class="plus" onclick="plus(${CList[i].id});">+</button><a class="plusNum reviveNumberPlus${CList[i].id}">0</a>-<a class="minusNum reviveNumberMinus${CList[i].id}">0</a><button class="minus" onclick="minus(${CList[i].id});">-</button></div>
+                            <div><button onclick="changeData(${CList[i].id});">Apply changes</button></div>
+                            <div class="warningsCharacter${CList[i].id} none"></div>
+                        </section>
+                        <section class="apply">
 
-                    </section>
-                </div>
-            `;
+                        </section>
+                    </div>
+                `;
+                changeOnLoad(CList[i].id);
+        }
+        else {
+            playersList.innerHTML += 
+                `
+                    <div class="character character${i}">
+                        <section class="char">
+                            <div>Name: ${CList[i].name}</div><br>
+                            <div>Initiative: ${CList[i].initiative}</div><br>
+                            <div><a>Current HP: </a><input value="${CList[i].hp}" class="hp${CList[i].id}"></div>
+                            <div><a>Max HP: </a><input value="${CList[i].hpMax}" class="hpMax${CList[i].id}"></div>
+                            <div><a>Notes: </a><br><textarea class="note note${CList[i].id}" rows="6" cols="20" type="text">${CList[i].note}</textarea></div>
+                            <div><button onclick="changeData(${CList[i].id});">Apply changes</button></div>
+                            <div class="warningsCharacter${CList[i].id} none"></div>
+                        </section>
+                        <section class="apply">
+    
+                        </section>
+                    </div>
+                `;
+                console.log(CList[i].id);
+        }
+    }
+}
+
+function plus(i){
+    if(parseInt(document.body.querySelector(`.reviveNumberPlus${i}`).innerHTML) < 3){
+        document.body.querySelector(`.reviveNumberPlus${i}`).innerHTML = parseInt(document.body.querySelector(`.reviveNumberPlus${i}`).innerHTML) + 1;
+    }
+}
+
+function minus(i){
+    if(parseInt(document.body.querySelector(`.reviveNumberMinus${i}`).innerHTML) < 3){
+        document.body.querySelector(`.reviveNumberMinus${i}`).innerHTML = parseInt(document.body.querySelector(`.reviveNumberMinus${i}`).innerHTML) + 1;
     }
 }
 
@@ -129,6 +172,7 @@ function endTurn(){
         CListSorted.shift();
         CListSorted.push(temp);
         displayCharacters();
+        displayList();
     }
     else {
         number = CList.length;
@@ -137,6 +181,7 @@ function endTurn(){
         CListSorted.push(temp);
         displayCharacters();
         runMeterNumber.innerHTML++;
+        displayList();
     }
 }
 
@@ -164,19 +209,67 @@ function end(){
     displayList();
 }
 
-function changeData(i){
+function changeOnLoad(i){
     let found = CListSorted.find(element => element.id === i);
-    
-    found.hp = parseInt(document.body.querySelector(`.hp${i}`).value);
-    found.hpMax = parseInt(document.body.querySelector(`.hpMax${i}`).value);
-    found.note = document.body.querySelector(`.note${i}`).value;
+    let changeBG = document.body.querySelector(`.character${i - 1}`);
+    if(found.hp == 0){
+        changeBG.classList.add("red");
+        document.body.querySelector(`.char${i}`).classList.add("red");
+    }
+    else {
+        changeBG.classList.remove("red");
+        document.body.querySelector(`.char${i}`).classList.remove("red");
+    }
+}
 
-    let toChange = document.body.querySelector(`.char${i}`);
-    toChange.innerHTML = 
-        `
-            <div>Name: ${found.name}</div><br>
-            <div>Initiative: ${found.initiative}</div><br>
-            <div>HP: ${found.hp}/${found.hpMax}</div><br>
-            <div>Notes: ${found.note}</div>
-        `;
+function changeData(i){
+    console.log(i);
+
+    let warningBoxChar = document.body.querySelector(`.warningsCharacter${CList[i-1].id}`);
+
+    if(parseInt(document.body.querySelector(`.hp${i}`).value) > parseInt(document.body.querySelector(`.hpMax${i}`).value)){
+        warningBoxChar.classList.remove("none");
+        warningBoxChar.innerHTML = "Current HP must be lower than or equal to max HP!";
+    }
+    else if(parseInt(document.body.querySelector(`.hpMax${i}`).value) < 0){
+        warningBoxChar.classList.remove("none");
+        warningBoxChar.innerHTML = "Max HP can't be lower than or equal to 0!";
+    }
+    else if(parseInt(document.body.querySelector(`.hp${i}`).value) < 0){
+        warningBoxChar.classList.remove("none");
+        warningBoxChar.innerHTML = "HP can't be lower than 0!";
+    }
+    else {
+        let found = CListSorted.find(element => element.id === i);
+
+        warningBoxChar.classList.add("none");
+
+        found.hp = parseInt(document.body.querySelector(`.hp${i}`).value);
+        found.hpMax = parseInt(document.body.querySelector(`.hpMax${i}`).value);
+        found.note = document.body.querySelector(`.note${i}`).value;
+
+        let j = CList.findIndex(element => element.id === i);
+        if (j !== -1) {
+            CList[j] = found;
+        }
+        displayList();
+
+        document.body.querySelector(`.char${i}`).innerHTML = 
+            `
+                <div>Name: ${found.name}</div><br>
+                <div>Initiative: ${found.initiative}</div><br>
+                <div>HP: ${found.hp}/${found.hpMax}</div><br>
+                <div>Notes: ${found.note}</div>
+            `;
+        
+        let changeBG = document.body.querySelector(`.character${i - 1}`);
+        if(found.hp == 0){
+            changeBG.classList.add("red");
+            document.body.querySelector(`.char${i}`).classList.add("red");
+        }
+        else {
+            changeBG.classList.remove("red");
+            document.body.querySelector(`.char${i}`).classList.remove("red");
+        }
+    }
 }
