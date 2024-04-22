@@ -169,7 +169,7 @@
 }
 
 body .popupBG {
-    height: 100vh;
+    height: 100%;
     width: 100vw;
     position: absolute;
     z-index: 2;
@@ -419,4 +419,10 @@ body .popupBG .popup .warnings {
 
 .minusNum {
     width: 20px !important;
+}
+
+@media screen and (max-width: 500px) {
+    body .popupBG .popup {
+        width: 100vw;
+    }
 }

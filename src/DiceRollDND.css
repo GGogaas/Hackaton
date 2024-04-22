@@ -140,3 +140,45 @@ input {
 .none {
     display: none;
 }
+
+@media screen and (max-width: 700px) {
+    .module .middle .img{
+        display: none;
+    }
+    .module .middle div {
+        width: 45%;
+    }
+    .module .diceList {
+        margin-bottom: 10px;
+        display: block;
+    }
+    .module .diceList label {
+        display: inline-block;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .module .middle {
+        width: auto;
+        display: block;
+        padding: 20px 10px;
+        margin: 10px;
+        border-radius: 20px;
+        padding: 0;
+        text-align: center;
+    }
+    .module .middle div {
+        margin: 0;
+        display: block;
+        width: auto;
+    }
+    .module .middle .DC {
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 270px) {
+    .module input {
+        width: 100px;
+    }
+}

@@ -17,9 +17,8 @@ function HeaderBurger(props){
     return (
         <>
             <div className="logo"><a href="index.html"><img className="logo_zdj" src={image} /></a></div>
-    
+            
             <div className="interactive">
-                <div className="info"><a href="contact.html"><button>Contact</button></a></div>
                 <div className="info"><a href="info.html"><button>Info</button></a></div>
                 <div className="burger"><button onClick={showList}><img className="burgerIMG" src={burger}></img></button></div>
             </div>

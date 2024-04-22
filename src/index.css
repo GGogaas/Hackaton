@@ -13,6 +13,8 @@
 
 body {
     margin: 0;
+    overflow-x: hidden;
+    max-width: 100%;
 }
 
 a {
@@ -26,7 +28,6 @@ a {
     justify-content: space-between;
     height: var(--header-height);
     z-index: 1;
-    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1;
@@ -117,7 +118,7 @@ body::before {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: calc(100% + 60px);
     background-color: rgba(120, 120, 120, 0.8);
     z-index: -1;
 }
@@ -249,4 +250,76 @@ body::before {
     font-size: 20px;
     width: 90%;
     margin-inline: auto;
+}
+
+.endButton {
+    font-size: 20px;
+    background-color: rgb(70, 70, 70);
+    padding-block: 15px;
+    padding-inline: 50px;
+    border-radius: 15px;
+    color: white;
+    border: 0;
+    transition: 0.4s;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.endButton:hover {
+    background-color: rgb(87, 87, 87);
+    transform: scale(108%);
+}
+
+.endButton:active {
+    transform: scale(90%);
+}
+
+.centered {
+    text-align: center;
+    margin: 10px 0 0;
+}
+
+@media screen and (max-width: 1500px) {
+    .displayOnBigScreen{
+        display: none;
+    }
+    .panels li a {
+        display: block;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .header {
+        display: block !important;
+        height: 160px;
+        text-align: center;
+        position: sticky;
+    }
+    .header .interactive {
+        width: 100%;
+    }
+    .BurgerMenu {
+        top: 160px;
+        height: calc(100vh - 160px);
+    }
+    .shorterOnSmallerScreens{
+        font-size: 40px;
+    }
+    .body {
+        padding-bottom: 50px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .panels li a img {
+        height: auto;
+        width: 95%;
+    }
+    .panels li a {
+        height: 50vw;
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
 }
