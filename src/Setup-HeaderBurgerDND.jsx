@@ -6,8 +6,8 @@ const list = [
   {name: "DNDDices.html", target: "_self", display: "Dices"},
   {name: "DNDPCC.html", target: "_self", display: "Character Creation"},
   {name: "DNDCombat.html", target: "_self", display: "Combat"},
-  {name: "DNDStatBlocks.html", target: "_self", display: "StatBlocks"},
-  {name: "DNDBooks.html", target: "_self", display: "Books"},
+  {name: "https://open5e.com/monsters", target: "_blank", display: "StatBlocks"},
+  {name: "https://dnd.wizards.com/products?category=tabletop-rpg", target: "_blank", display: "Books"},
   {name: "https://dnd.wizards.com/", target: "_blank", display: "D&D official website"},
   {name: "https://www.dndbeyond.com/posts/1480-what-is-dungeons-dragons", target: "_blank", display: "What is D&D"}
 ]
