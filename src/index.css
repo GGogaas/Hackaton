@@ -109,7 +109,7 @@ body {
     background-image: url('assets/indexBG.jpg');
     background-size: 100% auto;
     background-color: transparent;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 body::before {
@@ -252,31 +252,13 @@ body::before {
     margin-inline: auto;
 }
 
-.endButton {
-    font-size: 20px;
-    background-color: rgb(70, 70, 70);
-    padding-block: 15px;
-    padding-inline: 50px;
-    border-radius: 15px;
-    color: white;
-    border: 0;
-    transition: 0.4s;
-    cursor: pointer;
-    width: fit-content;
-}
-
-.endButton:hover {
-    background-color: rgb(87, 87, 87);
-    transform: scale(108%);
-}
-
-.endButton:active {
-    transform: scale(90%);
-}
-
 .centered {
     text-align: center;
     margin: 10px 0 0;
+}
+
+.image {
+    width: 500px;
 }
 
 @media screen and (max-width: 1500px) {
@@ -286,6 +268,23 @@ body::before {
     .panels li a {
         display: block;
         text-align: center;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .panels li a img {
+        height: auto;
+        width: 95%;
+    }
+    .panels li a {
+        height: 50vw;
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+
+    .image {
+        width: 400px;
     }
 }
 
@@ -309,17 +308,8 @@ body::before {
     .body {
         padding-bottom: 50px;
     }
-}
 
-@media screen and (max-width: 700px) {
-    .panels li a img {
-        height: auto;
-        width: 95%;
-    }
-    .panels li a {
-        height: 50vw;
-        display: flex;
-        align-items: center;
-        text-align: center;
+    .image {
+        width: 200px;
     }
 }
