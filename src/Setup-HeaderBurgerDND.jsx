@@ -4,7 +4,6 @@ import HeaderBurger from './HeaderBurger'
 import './index.css'
 const list = [
   {name: "DNDDices.html", target: "_self", display: "Dices"},
-  {name: "DNDPCC.html", target: "_self", display: "Character Creation"},
   {name: "DNDCombat.html", target: "_self", display: "Combat"},
   {name: "https://open5e.com/monsters", target: "_blank", display: "StatBlocks"},
   {name: "https://dnd.wizards.com/products?category=tabletop-rpg", target: "_blank", display: "Books"},

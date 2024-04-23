@@ -119,7 +119,7 @@ function displayList(){
                             <div>Initiative: ${CList[i].initiative}</div><br>
                             <div><a>Current HP: </a><input type="number" value="${CList[i].hp}" class="hp${CList[i].id}"></div>
                             <div><a>Max HP: </a><input type="number" value="${CList[i].hpMax}" class="hpMax${CList[i].id}"></div>
-                            <div><a>Notes: </a><br><textarea type="text" class="note note${CList[i].id}" rows="6" cols="20" type="text">${CList[i].note}</textarea></div>
+                            <div><a>Notes: </a><br><textarea type="text" class="note note${CList[i].id}" rows="6" cols="15" type="text">${CList[i].note}</textarea></div>
                             <div class="revive${CList[i].id}">Death saving throws<br><button class="plus" onclick="plus(${CList[i].id});">+</button><a class="plusNum reviveNumberPlus${CList[i].id}">${CList[i].plus}</a>-<a class="minusNum reviveNumberMinus${CList[i].id}">${CList[i].minus}</a><button class="minus" onclick="minus(${CList[i].id});">-</button></div>
                             <div><button onclick="changeData(${CList[i].id});">Apply changes</button></div>
                             <div class="warningsCharacter${CList[i].id} none"></div>
@@ -140,7 +140,7 @@ function displayList(){
                             <div>Initiative: ${CList[i].initiative}</div><br>
                             <div><a>Current HP: </a><input type="number" value="${CList[i].hp}" class="hp${CList[i].id}"></div>
                             <div><a>Max HP: </a><input type="number" value="${CList[i].hpMax}" class="hpMax${CList[i].id}"></div>
-                            <div><a>Notes: </a><br><textarea type="text" class="note note${CList[i].id}" rows="6" cols="20" type="text">${CList[i].note}</textarea></div>
+                            <div><a>Notes: </a><br><textarea type="text" class="note note${CList[i].id}" rows="6" cols="15" type="text">${CList[i].note}</textarea></div>
                             <div><button onclick="changeData(${CList[i].id});">Apply changes</button></div>
                             <div class="warningsCharacter${CList[i].id} none"></div>
                         </section>
